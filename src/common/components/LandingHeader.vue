@@ -10,7 +10,7 @@
         </div>
         <div class="logoContent">
           <a href="/">
-            <img src="../assets/images/logo.svg" class="logo" alt="Logo" />
+            <img src="../../assets/images/logo.svg" class="logo" alt="Logo" />
           </a>
         </div>
         <div class="rightContent">

@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import Accordion from "../../../common/components/Accordion.vue";
+</script>
 
 <template>
   <div class="wrapper">
@@ -193,261 +195,362 @@
           </div>
           <div class="priceItems flex">
             <div class="priceItem">
-              <div class="priceItemPriceContent">
-                <div class="priceItemPriceContentTarif">Standard</div>
-                <div class="priceItemPriceContentPrice">€2000</div>
-                <div class="priceItemPriceContentDate">Billed monthly</div>
-                <a href="/" class="priceItemPriceContentLink"
-                  >Хочу попробовать</a
-                >
-              </div>
-              <div class="priceItemPriceBody">
-                <ul class="priceItemPriceBodyList">
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Помощь с подбором программ и университета;
-                  </li>
+              <div class="priceItemWrapper">
+                <div class="priceItemPriceContent">
+                  <div class="priceItemPriceContentTarif">Standard</div>
+                  <div class="priceItemPriceContentPrice">€2000</div>
+                  <div class="priceItemPriceContentDate">Billed monthly</div>
+                  <a href="/" class="priceItemPriceContentLink"
+                    >Хочу попробовать</a
+                  >
+                </div>
+                <div class="priceItemPriceBody">
+                  <ul class="priceItemPriceBodyList">
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Помощь с подбором программ и университета;
+                    </li>
 
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультации по легализации, переводов и иных
-                  </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультации по легализации, переводов и иных
+                    </li>
 
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Разбор и исправление (CV, мотивационные и рекомендательные
-                    письма);
-                  </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Разбор и исправление (CV, мотивационные и рекомендательные
+                      письма);
+                    </li>
 
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Подача заявок в 3-4 вузов;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Налоги за рассмотрение документов в вузы оплачивается
-                    отдельно абитуриентом от 15-60 евро;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Подача на стипендию;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультации по подаче визы и по банковским вопросам в РК;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультация до окончательного завершения результата;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Гайд по прибытию в Италию (инструкция по оформлению ВНЖ,
-                    поиска жилья и других бытовых вопросов).
-                  </li>
-                </ul>
-              </div>
-            </div>
-
-            <div class="priceItem">
-              <div class="priceItemPriceContent">
-                <div class="priceItemPriceContentTarif">Premium</div>
-                <div class="priceItemPriceContentPrice">€2400</div>
-                <div class="priceItemPriceContentDate">Billed monthly</div>
-                <a href="/" class="priceItemPriceContentLink"
-                  >Хочу попробовать</a
-                >
-              </div>
-              <div class="priceItemPriceBody">
-                <ul class="priceItemPriceBodyList">
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Помощь с подбором программ и университета;
-                  </li>
-
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультации по легализации, переводов и иных
-                  </li>
-
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Разбор и исправление (CV, мотивационные и рекомендательные
-                    письма);
-                  </li>
-
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Подача заявок в 3-4 вузов;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Налоги за рассмотрение документов в вузы оплачивается
-                    отдельно абитуриентом от 15-60 евро;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Подача на стипендию;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультации по подаче визы и по банковским вопросам в РК;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультация до окончательного завершения результата;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Гайд по прибытию в Италию (инструкция по оформлению ВНЖ,
-                    поиска жилья и других бытовых вопросов).
-                  </li>
-                </ul>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Подача заявок в 3-4 вузов;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Налоги за рассмотрение документов в вузы оплачивается
+                      отдельно абитуриентом от 15-60 евро;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Подача на стипендию;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультации по подаче визы и по банковским вопросам в РК;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультация до окончательного завершения результата;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Гайд по прибытию в Италию (инструкция по оформлению ВНЖ,
+                      поиска жилья и других бытовых вопросов).
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
 
             <div class="priceItem">
-              <div class="priceItemPriceContent">
-                <div class="priceItemPriceContentTarif">Vip</div>
-                <div class="priceItemPriceContentPrice">€3000</div>
-                <div class="priceItemPriceContentDate">Billed monthly</div>
-                <a href="/" class="priceItemPriceContentLink"
-                  >Хочу попробовать</a
-                >
+              <div class="priceItemWrapper">
+                <div class="priceItemPriceContent">
+                  <div class="priceItemPriceContentTarif">Premium</div>
+                  <div class="priceItemPriceContentPrice">€2400</div>
+                  <div class="priceItemPriceContentDate">Billed monthly</div>
+                  <a href="/" class="priceItemPriceContentLink"
+                    >Хочу попробовать</a
+                  >
+                </div>
+                <div class="priceItemPriceBody">
+                  <ul class="priceItemPriceBodyList">
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Помощь с подбором программ и университета;
+                    </li>
+
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультации по легализации, переводов и иных
+                    </li>
+
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Разбор и исправление (CV, мотивационные и рекомендательные
+                      письма);
+                    </li>
+
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Подача заявок в 3-4 вузов;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Налоги за рассмотрение документов в вузы оплачивается
+                      отдельно абитуриентом от 15-60 евро;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Подача на стипендию;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультации по подаче визы и по банковским вопросам в РК;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультация до окончательного завершения результата;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Гайд по прибытию в Италию (инструкция по оформлению ВНЖ,
+                      поиска жилья и других бытовых вопросов).
+                    </li>
+                  </ul>
+                </div>
               </div>
-              <div class="priceItemPriceBody">
-                <ul class="priceItemPriceBodyList">
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Помощь с подбором программ и университета;
-                  </li>
+            </div>
 
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультации по легализации, переводов и иных
-                  </li>
+            <div class="priceItem">
+              <div class="priceItemWrapper">
+                <div class="priceItemPriceContent">
+                  <div class="priceItemPriceContentTarif">Vip</div>
+                  <div class="priceItemPriceContentPrice">€3000</div>
+                  <div class="priceItemPriceContentDate">Billed monthly</div>
+                  <a href="/" class="priceItemPriceContentLink"
+                    >Хочу попробовать</a
+                  >
+                </div>
+                <div class="priceItemPriceBody">
+                  <ul class="priceItemPriceBodyList">
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Помощь с подбором программ и университета;
+                    </li>
 
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Разбор и исправление (CV, мотивационные и рекомендательные
-                    письма);
-                  </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультации по легализации, переводов и иных
+                    </li>
 
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Подача заявок в 3-4 вузов;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Налоги за рассмотрение документов в вузы оплачивается
-                    отдельно абитуриентом от 15-60 евро;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Подача на стипендию;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультации по подаче визы и по банковским вопросам в РК;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Консультация до окончательного завершения результата;
-                  </li>
-                  <li class="priceItemPriceBodyItem">
-                    <img
-                      src="../../../assets/images/landing/success.svg"
-                      alt=""
-                    />
-                    Гайд по прибытию в Италию (инструкция по оформлению ВНЖ,
-                    поиска жилья и других бытовых вопросов).
-                  </li>
-                </ul>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Разбор и исправление (CV, мотивационные и рекомендательные
+                      письма);
+                    </li>
+
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Подача заявок в 3-4 вузов;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Налоги за рассмотрение документов в вузы оплачивается
+                      отдельно абитуриентом от 15-60 евро;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Подача на стипендию;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультации по подаче визы и по банковским вопросам в РК;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Консультация до окончательного завершения результата;
+                    </li>
+                    <li class="priceItemPriceBodyItem">
+                      <img
+                        src="../../../assets/images/landing/success.svg"
+                        alt=""
+                      />
+                      Гайд по прибытию в Италию (инструкция по оформлению ВНЖ,
+                      поиска жилья и других бытовых вопросов).
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
+
+      <section class="faq_section">
+        <div class="faq">
+          <div class="faqTextContent">
+            <h2 class="faqTitle">Часто задаваемые вопросы</h2>
+            <p class="faqDesc">
+              Cras tincidunt lobortis feugiat vivamus at morbi leo urna molestie
+              atole elementum eu facilisis faucibus interdum posuere.
+            </p>
+          </div>
+          <div class="faqItems">
+            <Accordion />
+            <Accordion />
+            <Accordion />
+          </div>
+        </div>
+      </section>
     </div>
+
+    <section class="form_section">
+      <div class="container">
+        <div class="form">
+          <div class="formItems">
+            <div class="formItem">
+              <h3 class="contactText uppercase">КОНТАКТЫ</h3>
+              <h2 class="formTitle">Cвяжитесь с нами сегодня</h2>
+              <p class="formDesc">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit nulla
+                adipiscing tincidunt interdum tellus du.
+              </p>
+
+              <form class="formAction">
+                <div class="formGroup">
+                  <input type="text" class="formInput" placeholder="Ваше Имя" />
+                </div>
+                <div class="formGroup">
+                  <input
+                    type="text"
+                    class="formInput"
+                    placeholder="Номер телефона"
+                  />
+                </div>
+                <div class="formGroup">
+                  <input
+                    type="text"
+                    class="formInput"
+                    placeholder="Куда вы хотели бы поступить?"
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  class="formButton priceItemPriceContentLink"
+                >
+                  Отправить заявление
+                </button>
+              </form>
+            </div>
+            <div class="formItem">
+              <img src="../../../assets/images/landing/formBanner.png" alt="" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
   </div>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footerContent">
+        <div class="footerMainInfo">
+          <div class="footerItems">
+            <div class="footerItem footerLogoContent">
+              <h2 class="footerTitle uppercase">Ed World</h2>
+              <p class="footerDesc">
+                Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam
+                mauris sed ma
+              </p>
+              <ul class="socialLinks">
+                <li><a href="/" target="_blank"></a></li>
+              </ul>
+            </div>
+
+            <div class="footerItem">
+              <h2 class="footerListTitle">Контакты</h2>
+
+              <ul class="footerItemList">
+                <li><a href="tel:+77006674048">+77006674048</a></li>
+                <li><a href="tel:+77079789781">+77079789781</a></li>
+                <li><a href="#">info@ed-world.kz</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
 </template>
 
 <style scoped>
@@ -701,9 +804,13 @@
 .priceItem {
   width: 100%;
   max-width: 388px;
+}
+
+.priceItemWrapper {
   border: 1px solid rgba(212, 210, 227, 1);
   border-radius: 24px;
 }
+
 .priceItemPriceContent {
   padding-top: 48px;
   padding-bottom: 52px;
@@ -787,5 +894,180 @@
 
 .priceItems {
   gap: 56px;
+  justify-content: center;
+}
+
+.faq_section {
+  padding: 150px 0 97px 0;
+}
+
+.faqTitle {
+  font-size: 36px;
+  font-weight: 700;
+  color: var(--color-main);
+  margin-bottom: 16px;
+}
+
+.faqDesc {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "DM Sans", sans-serif;
+  line-height: 30px;
+  color: rgba(151, 149, 181, 1);
+  max-width: 596px;
+}
+
+.faqTextContent {
+  margin-bottom: 80px;
+}
+
+.faq {
+  width: 100%;
+  max-width: 1013px;
+  margin: 0 auto;
+}
+
+.faqItems {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.form_section {
+  padding: 106px 0;
+  position: relative;
+}
+
+.form_section::before {
+  content: "";
+  width: 410.94px;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: var(--color-secondary);
+  z-index: -1;
+}
+
+.formItems {
+  display: flex;
+  gap: 106px;
+}
+
+.formItem {
+  width: 50%;
+}
+
+.formItem img {
+  width: 100%;
+  max-width: 618.61px;
+  max-height: 567.67px;
+}
+
+.contactText {
+  font-size: 18px;
+  font-weight: 700;
+  font-family: "DM Sans", sans-serif;
+  color: #8d8ba7;
+  margin-bottom: 8px;
+}
+
+.formTitle {
+  font-size: 40px;
+  font-weight: 700;
+  color: var(--color-main);
+  margin-bottom: 16px;
+  line-height: 50px;
+}
+
+.formDesc {
+  max-width: 432.29px;
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "DM Sans", sans-serif;
+  line-height: 30px;
+  color: #9795b5;
+  margin-bottom: 41px;
+}
+
+.formInput {
+  padding: 16px 24px;
+  background-color: #f9f9ff;
+  border-radius: 32px;
+  width: 100%;
+  max-width: 416px;
+  height: 50px;
+  font-size: 16px;
+  font-family: "DM Sans", sans-serif;
+}
+
+.formInput::placeholder {
+  color: #adabc3;
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.formButton {
+  padding: 18px 24px;
+  width: 100%;
+  max-width: 222px;
+  min-height: 54px;
+  font-size: 16px;
+  line-height: 18px;
+  font-family: "Gilroy", sans-serif;
+}
+
+.footer {
+  padding: 113px 0;
+  background-color: var(--color-main);
+}
+
+.footerItems {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.footerLogoContent {
+  width: 100%;
+  max-width: 340.6px;
+}
+
+.footerTitle {
+  font-size: 25px;
+  font-weight: 800;
+  color: var(--color-white);
+  margin-bottom: 31px;
+}
+
+.footerDesc {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "DM Sans", sans-serif;
+  line-height: 30px;
+  color: #9795b5;
+  margin-bottom: 40px;
+}
+
+.footerListTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: #5d5a88;
+  margin-bottom: 40px;
+}
+
+.footerItemList {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.footerItemList li a {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 18px;
+  color: #9795b5;
 }
 </style>

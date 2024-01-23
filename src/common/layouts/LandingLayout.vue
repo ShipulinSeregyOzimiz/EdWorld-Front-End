@@ -1,5 +1,5 @@
 <script setup>
-import LandingHeader from "../../components/LandingHeader.vue";
+import LandingHeader from "../../common/components/LandingHeader.vue";
 </script>
 
 <template>
