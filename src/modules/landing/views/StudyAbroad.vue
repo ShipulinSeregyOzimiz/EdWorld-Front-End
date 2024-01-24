@@ -521,36 +521,7 @@ import Accordion from "../../../common/components/Accordion.vue";
     </section>
   </div>
 
-  <footer class="footer">
-    <div class="container">
-      <div class="footerContent">
-        <div class="footerMainInfo">
-          <div class="footerItems">
-            <div class="footerItem footerLogoContent">
-              <h2 class="footerTitle uppercase">Ed World</h2>
-              <p class="footerDesc">
-                Lorem ipsum dolor sit amet consectetur adipiscing elit aliquam
-                mauris sed ma
-              </p>
-              <ul class="socialLinks">
-                <li><a href="/" target="_blank"></a></li>
-              </ul>
-            </div>
-
-            <div class="footerItem">
-              <h2 class="footerListTitle">Контакты</h2>
-
-              <ul class="footerItemList">
-                <li><a href="tel:+77006674048">+77006674048</a></li>
-                <li><a href="tel:+77079789781">+77079789781</a></li>
-                <li><a href="#">info@ed-world.kz</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </footer>
+ 
 </template>
 
 <style scoped>
@@ -872,7 +843,7 @@ import Accordion from "../../../common/components/Accordion.vue";
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 8px;
+  gap: 14px;
 }
 
 .priceItemPriceBodyItem img {
@@ -1019,55 +990,5 @@ import Accordion from "../../../common/components/Accordion.vue";
   font-family: "Gilroy", sans-serif;
 }
 
-.footer {
-  padding: 113px 0;
-  background-color: var(--color-main);
-}
 
-.footerItems {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.footerLogoContent {
-  width: 100%;
-  max-width: 340.6px;
-}
-
-.footerTitle {
-  font-size: 25px;
-  font-weight: 800;
-  color: var(--color-white);
-  margin-bottom: 31px;
-}
-
-.footerDesc {
-  font-size: 18px;
-  font-weight: 400;
-  font-family: "DM Sans", sans-serif;
-  line-height: 30px;
-  color: #9795b5;
-  margin-bottom: 40px;
-}
-
-.footerListTitle {
-  font-size: 20px;
-  font-weight: 700;
-  color: #5d5a88;
-  margin-bottom: 40px;
-}
-
-.footerItemList {
-  display: flex;
-  flex-direction: column;
-  gap: 18px;
-}
-
-.footerItemList li a {
-  font-size: 18px;
-  font-weight: 400;
-  line-height: 18px;
-  color: #9795b5;
-}
 </style>

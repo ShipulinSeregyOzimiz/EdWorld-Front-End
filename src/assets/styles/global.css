@@ -21,3 +21,59 @@ body {
   margin: 0 auto;
   padding: 0 15px;
 }
+
+.templateSlider .swiper {
+  overflow: visible;
+}
+
+.templateSlider .swiper-button-prev {
+  position: absolute;
+  top: -120px;
+  right: 80px;
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-main);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.templateSlider .swiper-button-prev::before {
+  content: "<";
+}
+
+.templateSlider .swiper-button-next {
+  position: absolute;
+  top: -120px;
+  right: 0;
+  width: 64px;
+  height: 64px;
+  background-color: var(--color-main);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.templateSlider .swiper-button-next::before {
+  content: ">";
+}
+
+.templateSlider .swiper-button-disabled {
+  border: 1.23px solid #d4d2e3;
+  background-color: transparent;
+}
+
+.templateSlider .swiper-button-disabled {
+  color: black !important;
+}
+
+.templateSlider .swiper-pagination-bullets.swiper-pagination-horizontal {
+  width: auto;
+  bottom: -50px;
+}
+
+.templateSlider .swiper-pagination-bullet-active {
+  background: var(--color-main);
+}

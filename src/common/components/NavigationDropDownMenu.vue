@@ -1,5 +1,6 @@
 <script setup>
 import { ref, defineProps } from "vue";
+import { RouterLink } from "vue-router";
 const props = defineProps({
   class: {
     type: String,
@@ -27,9 +28,15 @@ const menuToggle = () => {
     </div>
     <div class="dropdown-menu" v-show="isVisible">
       <ul>
-        <li>каз</li>
-        <li>рус</li>
-        <li>en</li>
+        <li>
+          <router-link to="/study-in-italy">Обучение в Италии</router-link>
+        </li>
+        <li>
+          <router-link to="/study-in-italy">Обучение в Италии</router-link>
+        </li>
+        <li>
+          <router-link to="/study-in-italy">Обучение в Италии</router-link>
+        </li>
       </ul>
     </div>
   </div>

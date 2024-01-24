@@ -1,12 +1,15 @@
-<script setup></script>
+<script setup>
+import DropdownMenu from "./DropDownMenu.vue";
+import NavigationDropDownMenu from "./NavigationDropDownMenu.vue";
+</script>
 
 <template>
   <header class="header">
     <div class="container">
       <div class="headerContent">
         <div class="leftContent">
-          <div class="dropdown lang">рус</div>
-          <div class="dropdown">Образование за рубежом</div>
+          <DropdownMenu class="lang" text="Ру" />
+          <NavigationDropDownMenu text="Образование за рубежом" />
         </div>
         <div class="logoContent">
           <a href="/">
@@ -14,7 +17,7 @@
           </a>
         </div>
         <div class="rightContent">
-          <div class="dropdown">Образование за рубежом</div>
+          <DropdownMenu text="Языковая школа" class="dropdownL" />
           <a href="/" class="authLink">Войти</a>
           <a href="/" class="submitApplicationLink">Оставить заявку</a>
         </div>
@@ -42,23 +45,28 @@
   display: flex;
   align-items: center;
 }
-
-.rightContent .dropdown {
+.dropdownL {
   margin-right: 51px;
 }
 
 .authLink {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-main);
   margin-right: 18px;
 }
 
-.dropdown {
-  padding: 11px 22px;
-  border: 1px solid var(--color-main);
-  border-radius: 26px;
-  font-weight: 600;
+.submitApplicationLink {
+  width: 185px;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   font-size: 18px;
-  color: var(--color-main);
-  cursor: pointer;
+  font-weight: 600;
+  color: var(--color-white);
+  background-color: var(--color-secondary);
+  border-radius: 39px;
 }
 
 .lang {
