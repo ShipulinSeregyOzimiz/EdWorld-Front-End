@@ -1,4 +1,38 @@
-<script setup></script>
+<script setup>
+import { ref } from "vue";
+
+const questions = [
+  {
+    question: "1. I ________________ from France.",
+    variants: ["is", "are", "am", "be"],
+  },
+  {
+    question: "2. I ________________ from England.",
+    variants: ["is", "are", "am", "be"],
+  },
+  {
+    question: "3. I ________________ from Finland.",
+    variants: ["is", "are", "am", "be"],
+  },
+  {
+    question: "4. I ________________ from Uzbekistan.",
+    variants: ["is", "are", "am", "be"],
+  },
+];
+
+const step = ref(0);
+
+const nextStep = () => {
+  if (step.value === questions.length - 1) return;
+  step.value++;
+};
+
+const prevStep = () => {
+  if (step.value > 0) {
+    step.value--;
+  }
+};
+</script>
 
 <template>
   <div class="studyTemplateWrapper">
@@ -30,8 +64,8 @@
           <h2 class="testTitle">Тест по определению уровня</h2>
 
           <div class="testContent">
-            <div class="testStep">1/20</div>
-            <h2 class="testQuestion">1. I _ _ _ _ _ _ _ _ _ from France.</h2>
+            <div class="testStep">{{ step + 1 }}/{{ questions.length }}</div>
+            <h2 class="testQuestion">{{ questions[step]?.question }}</h2>
 
             <div class="testItems">
               <div class="testItem">
@@ -53,10 +87,12 @@
             </div>
 
             <div class="testActions">
-              <button class="testButton testDisabled" type="button">
+              <button class="testButton" @click="prevStep" type="button">
                 назад
               </button>
-              <button class="testButton" type="button">вперед</button>
+              <button class="testButton" @click="nextStep" type="button">
+                вперед
+              </button>
             </div>
           </div>
         </div>
@@ -68,7 +104,7 @@
 <style scoped>
 .banner {
   width: 100%;
-  height: 744px;
+  height: 640px;
   position: relative;
   display: flex;
   justify-content: center;
