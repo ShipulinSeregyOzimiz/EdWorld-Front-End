@@ -212,6 +212,7 @@ import TemplateSlider from "../components/TemplateSlider.vue";
 
 .infoItems {
   display: flex;
+  justify-content: center;
   gap: 32px;
 }
 
