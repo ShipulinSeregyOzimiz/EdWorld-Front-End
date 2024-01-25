@@ -1,41 +1,49 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps, defineEmits } from "vue";
 import { RouterLink } from "vue-router";
 import Input from "@/common/components/Input.vue";
 
+const props = defineProps({
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const emits = defineEmits(["onSubmit"]);
+
 const formData = ref({
-  fio: "",
-  email: "",
-  phoneNumber: "",
+  name: "",
+  phone: "",
   password: "",
 });
+
+const handleSubmit = () => {
+  emits("onSubmit", formData.value);
+};
 </script>
 
 <template>
   <div class="formContent">
     <h2 class="formTitle">Регистрация</h2>
     <p class="formDesc">Введите данные и пароль</p>
-    <form class="form">
+    <form class="form" @submit.prevent="handleSubmit">
       <div class="formGroup">
         <label for="">ФИО<span>*</span></label>
         <Input
-          v-model="formData.fio"
+          v-model="formData.name"
           placeholder="Асанова Асем Раимкулова"
           class="input"
         />
       </div>
       <div class="formGroup">
         <label for="">Почта<span>*</span></label>
-        <Input
-          v-model="formData.email"
-          placeholder="asanasem@gmail.com"
-          class="input"
-        />
+        <Input placeholder="asanasem@gmail.com" class="input" />
       </div>
       <div class="formGroup">
         <label for="">Номер телефона<span>*</span></label>
         <Input
-          v-model="formData.fio"
+          v-model="formData.phone"
           placeholder="+7 777 777 77 77"
           class="input"
         />
@@ -44,7 +52,7 @@ const formData = ref({
         <label for="">Пароль<span>*</span></label>
         <div class="passwordWrapper">
           <Input
-            v-model="formData.phoneNumber"
+            v-model="formData.password"
             placeholder="Мин. 8 символов"
             class="input passwordInput"
             htmlType="password"
@@ -64,7 +72,10 @@ const formData = ref({
         >
       </div>
 
-      <button class="submitBtn" type="submit">Регистрация</button>
+      <button class="submitBtn" type="submit" :disabled="loading">
+        <template v-if="loading"> ..loading</template>
+        <template v-else>Регистрация</template>
+      </button>
     </form>
   </div>
 </template>

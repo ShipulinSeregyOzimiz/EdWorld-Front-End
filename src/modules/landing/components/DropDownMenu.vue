@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, defineProps, onMounted, onBeforeMount } from "vue";
 const props = defineProps({
   class: {
     type: String,
@@ -9,27 +9,46 @@ const props = defineProps({
     type: String,
     default: "",
   },
+  options: {
+    type: Array,
+    default: [],
+  },
 });
 
 const isVisible = ref(false);
+const dropDown = ref(null);
 
 const menuToggle = () => {
   isVisible.value = !isVisible.value;
 };
+
+const handleClose = (element) => {
+  if (!dropDown.value.contains(element.target)) {
+    isVisible.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("click", handleClose);
+});
+
+onBeforeMount(() => {
+  window.removeEventListener("click", handleClose);
+});
 </script>
 
 <template>
-  <div class="dropdown" :class="class">
+  <div class="dropdown" :class="class" ref="dropDown">
     <div class="dropdown-content" @click="menuToggle">
       <span class="current_lang"> {{ text }} </span>
 
       <img src="../../../assets/images/landing/arrow-down.png" alt="" />
     </div>
     <div class="dropdown-menu" v-show="isVisible">
-      <ul>
-        <li>каз</li>
-        <li>рус</li>
-        <li>en</li>
+      <ul v-if="options.length > 0">
+        <template v-for="(option, index) in options" :key="index">
+          <li>{{ option.text }}</li>
+        </template>
       </ul>
     </div>
   </div>

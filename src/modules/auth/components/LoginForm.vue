@@ -1,23 +1,37 @@
 <script setup>
-import { ref } from "vue";
+import { ref, defineProps, defineEmits } from "vue";
 import { RouterLink } from "vue-router";
 import Input from "@/common/components/Input.vue";
 
+const props = defineProps({
+  loading: {
+    type: Boolean,
+    default: false,
+  },
+});
+
+const emits = defineEmits(["onSubmit"]);
+
 const formData = ref({
-  phoneNumber: "",
+  name: "testXz",
+  phone: "",
   password: "",
 });
+
+const handleSubmit = () => {
+  emits("onSubmit", formData.value);
+};
 </script>
 
 <template>
   <div class="formContent">
     <h2 class="formTitle">Вход</h2>
     <p class="formDesc">Введите номер телефона и пароль, чтобы войти!</p>
-    <form class="form">
+    <form class="form" @submit.prevent="handleSubmit">
       <div class="formGroup">
         <label for="">Номер телефона<span>*</span></label>
         <Input
-          v-model="formData.phoneNumber"
+          v-model="formData.phone"
           placeholder="+7 777 777 77 77"
           class="input"
         />
@@ -26,7 +40,7 @@ const formData = ref({
         <label for="">Пароль<span>*</span></label>
         <div class="passwordWrapper">
           <Input
-            v-model="formData.phoneNumber"
+            v-model="formData.password"
             placeholder="Мин. 8 символов"
             class="input passwordInput"
             htmlType="password"
@@ -46,11 +60,16 @@ const formData = ref({
         >
       </div>
 
-      <button class="submitBtn" type="submit">Вход</button>
+      <button class="submitBtn" type="submit" :disabled="loading">
+        <template v-if="loading"> ..loading</template>
+        <template v-else> Вход</template>
+      </button>
 
       <div class="pod">
         У вас нет учетной записи?
-        <RouterLink class="podLink" to="/auth/registration">Зарегистрироваться</RouterLink>
+        <RouterLink class="podLink" to="/auth/registration"
+          >Зарегистрироваться</RouterLink
+        >
       </div>
     </form>
   </div>
@@ -172,6 +191,6 @@ label span {
 }
 
 .podLink {
-    color: #4318FF;
+  color: #4318ff;
 }
 </style>

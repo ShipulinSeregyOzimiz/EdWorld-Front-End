@@ -1,6 +1,50 @@
 <script setup>
+import { onMounted, ref } from "vue";
 import Accordion from "../components/Accordion.vue";
 import DropDownMenu from "../components/DropDownMenu.vue";
+import { sendApplication } from "@/api/modules/landing/requests/";
+
+// Нужно будет вынести отдельно в директорию constants
+
+const country = [
+  {
+    text: "Италия",
+  },
+  {
+    text: "Чехия",
+  },
+  {
+    text: "Турция",
+  },
+];
+
+//
+
+const applicationForm = ref({
+  phone: "77777777777",
+  name: "name",
+  place: "2",
+});
+
+const applicationLoading = ref(false);
+const applicationError = ref(null);
+
+const handleSendApplication = async () => {
+  applicationError.value = null;
+  applicationLoading.value = true;
+
+  try {
+    const response = await sendApplication();
+
+    console.log(response);
+  } catch (err) {
+    applicationError.value = err;
+  } finally {
+    applicationLoading.value = false;
+  }
+};
+
+onMounted(() => {});
 </script>
 
 <template>
@@ -486,26 +530,27 @@ import DropDownMenu from "../components/DropDownMenu.vue";
                 adipiscing tincidunt interdum tellus du.
               </p>
 
-              <form class="formAction">
+              <form class="formAction" @submit.prevent="handleSendApplication">
                 <div class="formGroup">
-                  <input type="text" class="formInput" placeholder="Ваше Имя" />
+                  <input
+                    v-model="applicationForm.name"
+                    type="text"
+                    class="formInput"
+                    placeholder="Ваше Имя"
+                  />
                 </div>
                 <div class="formGroup">
                   <input
+                    v-model="applicationForm.phone"
                     type="text"
                     class="formInput"
                     placeholder="Номер телефона"
                   />
                 </div>
                 <div class="formGroup">
-                  <!-- <input
-                    type="text"
-                    class="formInput"
-                    placeholder="Куда вы хотели бы поступить?"
-                  /> -->
-
                   <DropDownMenu
                     text="Куда вы хотели бы поступить?"
+                    :options="country"
                     class="formInput formDropDown"
                   />
                 </div>

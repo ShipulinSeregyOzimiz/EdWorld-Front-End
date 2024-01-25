@@ -3,6 +3,8 @@ import { RouterLink } from "vue-router";
 import DropdownMenu from "./DropDownMenu.vue";
 import NavigationDropDownMenu from "./NavigationDropDownMenu.vue";
 
+// Вынести отдельно в constants
+
 const navigationRoutes = [
   {
     name: "Обучение в Италии",
@@ -25,6 +27,20 @@ const navigationRoutes = [
     link: "/reviews",
   },
 ];
+
+const langs = [
+  {
+    text: "ру",
+  },
+  {
+    text: "каз",
+  },
+  {
+    text: "en",
+  },
+];
+
+//
 </script>
 
 <template>
@@ -32,7 +48,7 @@ const navigationRoutes = [
     <div class="container">
       <div class="headerContent">
         <div class="leftContent">
-          <DropdownMenu class="lang" text="Ру" />
+          <DropdownMenu class="lang" text="Ру" :options="langs" />
           <NavigationDropDownMenu
             text="Образование за рубежом"
             :routes="navigationRoutes"

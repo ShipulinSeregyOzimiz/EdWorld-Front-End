@@ -1,9 +1,10 @@
 <script setup>
-import { ref, defineProps } from "vue";
+import { ref, defineProps, onBeforeMount, onMounted } from "vue";
 import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
 const routeL = useRoute();
+const dropDown = ref(null);
 
 const props = defineProps({
   routes: {
@@ -31,10 +32,24 @@ const handleNavigation = (route) => {
   router.push(route);
   isVisible.value = false;
 };
+
+const handleClose = (element) => {
+  if (!dropDown.value.contains(element.target)) {
+    isVisible.value = false;
+  }
+};
+
+onMounted(() => {
+  window.addEventListener("click", handleClose);
+});
+
+onBeforeMount(() => {
+  window.removeEventListener("click", handleClose);
+});
 </script>
 
 <template>
-  <div class="dropdown" :class="class">
+  <div class="dropdown" :class="class" ref="dropDown">
     <div class="dropdown-content" @click="menuToggle">
       <span class="current_lang"> {{ text }} </span>
 
@@ -97,7 +112,7 @@ const handleNavigation = (route) => {
   width: 100%;
   border: 1px solid #031a5b;
   border-radius: 47px;
-  padding: 8px 34px;
+  padding: 8px 21px;
 }
 
 .dropdown img {

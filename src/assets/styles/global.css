@@ -40,7 +40,11 @@ body {
 }
 
 .templateSlider .swiper-button-prev::before {
-  content: "<";
+  content: "";
+  background-image: url("../images/landing/sliderArrow.svg");
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
 }
 
 .templateSlider .swiper-button-next {
@@ -57,7 +61,12 @@ body {
 }
 
 .templateSlider .swiper-button-next::before {
-  content: ">";
+  content: "";
+  background-image: url("../images/landing/sliderArrow.svg");
+  transform: rotate(180deg);
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1);
 }
 
 .templateSlider .swiper-button-disabled {
@@ -67,6 +76,7 @@ body {
 
 .templateSlider .swiper-button-disabled {
   color: black !important;
+  filter: brightness(0);
 }
 
 .templateSlider .swiper-pagination-bullets.swiper-pagination-horizontal {
@@ -84,3 +94,6 @@ body {
     padding: 0 !important;
   }
 }
+
+
+
