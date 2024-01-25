@@ -1,6 +1,6 @@
 import axios from "axios";
 import { getApiConfig } from "../config/api.config";
-// import { store } from "@/store";
+import { useAuthUserStore } from "@/stores/authUser";
 
 const apiConfig = getApiConfig();
 
@@ -13,10 +13,10 @@ instance.interceptors.request.use(
     config.headers["Content-Type"] = "application/json";
     config.headers["Accept"] = "application/json";
 
-    // const auth = store.getState().auth.auth;
-    // if (auth) {
-    //   config.headers["Authorization"] = `Bearer ${auth.access.token}`;
-    // }
+    const auth = useAuthUserStore();
+    if (auth?.$state?.token) {
+      config.headers["Authorization"] = `${auth.$state.token}`;
+    }
 
     return config;
   },
