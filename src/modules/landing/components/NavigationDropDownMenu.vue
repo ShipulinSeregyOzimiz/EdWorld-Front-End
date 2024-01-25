@@ -1,10 +1,15 @@
 <script setup>
 import { ref, defineProps } from "vue";
-import {  useRouter } from "vue-router";
+import { useRouter, useRoute } from "vue-router";
 
 const router = useRouter();
+const routeL = useRoute();
 
 const props = defineProps({
+  routes: {
+    type: Array,
+    default: [],
+  },
   class: {
     type: String,
     default: "",
@@ -37,9 +42,16 @@ const handleNavigation = (route) => {
     </div>
     <div class="dropdown-menu" v-show="isVisible">
       <ul>
-        <li @click="handleNavigation('/study-in-italy')">Обучение в Италии</li>
-        <li @click="handleNavigation('/study-in-italy')">Обучение в Италии</li>
-        <li @click="handleNavigation('/study-in-italy')">Обучение в Италии</li>
+        <template v-if="routes.length > 0">
+          <template v-for="route in routes" :key="route.link">
+            <li
+              @click="handleNavigation(route.link)"
+              :class="route.link === routeL.path ? 'active' : ''"
+            >
+              {{ route.name }}
+            </li></template
+          >
+        </template>
       </ul>
     </div>
   </div>
@@ -92,5 +104,10 @@ const handleNavigation = (route) => {
   width: 24px;
   height: 24px;
   margin-left: 6px;
+}
+
+.active {
+  background-color: #031a5b;
+  color: var(--color-white);
 }
 </style>

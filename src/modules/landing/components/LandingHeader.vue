@@ -2,6 +2,29 @@
 import { RouterLink } from "vue-router";
 import DropdownMenu from "./DropDownMenu.vue";
 import NavigationDropDownMenu from "./NavigationDropDownMenu.vue";
+
+const navigationRoutes = [
+  {
+    name: "Обучение в Италии",
+    link: "/study-in-italy",
+  },
+  {
+    name: "Обучение в Чехии",
+    link: "/study-in-czech",
+  },
+  {
+    name: "Обучение в Турции",
+    link: "/study-in-turkey",
+  },
+  {
+    name: "Наши кейсы",
+    link: "/our-cases",
+  },
+  {
+    name: "Отзывы",
+    link: "/reviews",
+  },
+];
 </script>
 
 <template>
@@ -10,7 +33,10 @@ import NavigationDropDownMenu from "./NavigationDropDownMenu.vue";
       <div class="headerContent">
         <div class="leftContent">
           <DropdownMenu class="lang" text="Ру" />
-          <NavigationDropDownMenu text="Образование за рубежом" />
+          <NavigationDropDownMenu
+            text="Образование за рубежом"
+            :routes="navigationRoutes"
+          />
         </div>
         <div class="logoContent">
           <a href="/">

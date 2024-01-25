@@ -26,9 +26,26 @@ const router = createRouter({
                 import("@/modules/landing/views/StudyInItaly.vue"),
             },
             {
+              path: "/study-in-czech",
+              name: "studyInCzech",
+              component: () =>
+                import("@/modules/landing/views/StudyInCzech.vue"),
+            },
+            {
+              path: "/study-in-turkey",
+              name: "studyInTurkey",
+              component: () =>
+                import("@/modules/landing/views/StudyInTurkey.vue"),
+            },
+            {
               path: "/our-cases",
               name: "ourCases",
               component: () => import("@/modules/landing/views/OurCases.vue"),
+            },
+            {
+              path: "/reviews",
+              name: "reviews",
+              component: () => import("@/modules/landing/views/Reviews.vue"),
             },
             {
               path: "/language-classes",
