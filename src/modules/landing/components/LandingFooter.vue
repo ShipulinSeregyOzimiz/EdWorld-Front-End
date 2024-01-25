@@ -97,6 +97,11 @@
             </div>
           </div>
         </div>
+
+        <div class="lukText">
+          Copyright © 2024 | All Rights Reserved |
+          <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a>
+        </div>
       </div>
     </div>
   </footer>
@@ -104,7 +109,7 @@
 
 <style scoped>
 .footer {
-  padding: 113px 0;
+  padding: 113px 0 32px 0;
   background-color: var(--color-main);
   margin-top: auto;
 }
@@ -175,5 +180,19 @@
   display: flex;
   align-items: center;
   gap: 16px;
+}
+
+.lukText {
+  font-size: 18px;
+  font-weight: 400;
+  font-family: "DM Sans", sans-serif;
+  color: #767494;
+  margin-top: 32px;
+  text-align: center;
+}
+
+.lukText a {
+  color: #ADABC3;
+  text-decoration: underline;
 }
 </style>
