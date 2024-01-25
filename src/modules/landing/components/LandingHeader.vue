@@ -1,4 +1,5 @@
 <script setup>
+import { RouterLink } from "vue-router";
 import DropdownMenu from "./DropDownMenu.vue";
 import NavigationDropDownMenu from "./NavigationDropDownMenu.vue";
 </script>
@@ -13,12 +14,16 @@ import NavigationDropDownMenu from "./NavigationDropDownMenu.vue";
         </div>
         <div class="logoContent">
           <a href="/">
-            <img src="../../assets/images/logo.svg" class="logo" alt="Logo" />
+            <img
+              src="../../../assets/images/logo.svg"
+              class="logo"
+              alt="Logo"
+            />
           </a>
         </div>
         <div class="rightContent">
           <DropdownMenu text="Языковая школа" class="dropdownL" />
-          <a href="/" class="authLink">Войти</a>
+          <RouterLink to="/auth/login" class="authLink">Войти</RouterLink>
           <a href="/" class="submitApplicationLink">Оставить заявку</a>
         </div>
       </div>

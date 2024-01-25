@@ -1,5 +1,6 @@
 <script setup>
 import { ref } from "vue";
+import Input from "../../../common/components/Input.vue";
 
 const questions = [
   {
@@ -21,6 +22,13 @@ const questions = [
 ];
 
 const step = ref(0);
+const isVisibleForm = ref(false);
+const formData = ref({
+  name: "",
+  email: "",
+  phoneNumber: "",
+  message: "",
+});
 
 const nextStep = () => {
   if (step.value === questions.length - 1) return;
@@ -31,6 +39,10 @@ const prevStep = () => {
   if (step.value > 0) {
     step.value--;
   }
+};
+
+const handleEndTest = () => {
+  isVisibleForm.value = true;
 };
 </script>
 
@@ -61,39 +73,89 @@ const prevStep = () => {
 
       <section class="test_section">
         <div class="test">
-          <h2 class="testTitle">Тест по определению уровня</h2>
+          <h2 class="testTitle">
+            <template v-if="isVisibleForm">
+              ВЫ ЗАВЕРШИЛИ ТЕСТИРОВАНИЕ, ЗАПОЛНИТЕ ФОРМУ, ЧТОБЫ ПОЛУЧИТЬ
+              РЕЗУЛЬТАТЫ</template
+            >
+            <template v-else> Тест по определению уровня </template>
+          </h2>
 
           <div class="testContent">
-            <div class="testStep">{{ step + 1 }}/{{ questions.length }}</div>
-            <h2 class="testQuestion">{{ questions[step]?.question }}</h2>
+            <template v-if="isVisibleForm">
+              <div class="testSendForm">
+                <form>
+                  <div class="formGroup">
+                    <Input v-model="formData.name" placeholder="John Carter" />
+                  </div>
+                  <div class="formGroup">
+                    <Input
+                      v-model="formData.email"
+                      placeholder="example@email.com"
+                    />
+                  </div>
+                  <div class="formGroup">
+                    <Input
+                      v-model="formData.phoneNumber"
+                      placeholder="(123) 456 - 789"
+                    />
+                  </div>
+                  <div class="formGroup">
+                    <Input
+                      v-model="formData.message"
+                      placeholder="Please type your message here..."
+                    />
+                  </div>
 
-            <div class="testItems">
-              <div class="testItem">
-                <input type="radio" id="is" name="verb" />
-                <label for="is">is</label>
+                  <button class="testSendButton" type="submit">
+                    Отправить сообщение
+                  </button>
+                </form>
               </div>
-              <div class="testItem">
-                <input type="radio" id="am" name="verb" />
-                <label for="am">am</label>
-              </div>
-              <div class="testItem">
-                <input type="radio" id="are" name="verb" />
-                <label for="are">are</label>
-              </div>
-              <div class="testItem">
-                <input type="radio" id="be" name="verb" />
-                <label for="be">be</label>
-              </div>
-            </div>
+            </template>
+            <template v-else>
+              <div class="testStep">{{ step + 1 }}/{{ questions.length }}</div>
+              <h2 class="testQuestion">{{ questions[step]?.question }}</h2>
 
-            <div class="testActions">
-              <button class="testButton" @click="prevStep" type="button">
-                назад
-              </button>
-              <button class="testButton" @click="nextStep" type="button">
-                вперед
-              </button>
-            </div>
+              <div class="testItems">
+                <div class="testItem">
+                  <input type="radio" id="is" name="verb" />
+                  <label for="is">is</label>
+                </div>
+                <div class="testItem">
+                  <input type="radio" id="am" name="verb" />
+                  <label for="am">am</label>
+                </div>
+                <div class="testItem">
+                  <input type="radio" id="are" name="verb" />
+                  <label for="are">are</label>
+                </div>
+                <div class="testItem">
+                  <input type="radio" id="be" name="verb" />
+                  <label for="be">be</label>
+                </div>
+              </div>
+
+              <div class="testActions">
+                <button class="testButton" @click="prevStep" type="button">
+                  назад
+                </button>
+                <template v-if="step === questions.length - 1">
+                  <button
+                    class="testButton"
+                    @click="handleEndTest"
+                    type="button"
+                  >
+                    завершить
+                  </button>
+                </template>
+                <template v-else>
+                  <button class="testButton" @click="nextStep" type="button">
+                    вперед
+                  </button>
+                </template>
+              </div>
+            </template>
           </div>
         </div>
       </section>
@@ -272,5 +334,30 @@ input[type="radio"] {
 .testDisabled {
   background-color: #5d5a88;
   cursor: no-drop;
+}
+
+.testSendForm {
+  width: 100%;
+  max-width: 462.79px;
+  padding: 50px 0;
+  margin: 0 auto;
+}
+
+.formGroup {
+  margin-bottom: 24px;
+}
+
+.testSendButton {
+  width: 100%;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-white);
+  background-color: var(--color-main);
+  margin-top: 12px;
+  border-radius: 30px;
 }
 </style>

@@ -1,6 +1,4 @@
-<script setup>
-import OurCasesSlider from "../components/OurCasesSlider.vue";
-</script>
+<script setup></script>
 
 <template>
   <div class="studyTemplateWrapper">

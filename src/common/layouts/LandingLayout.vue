@@ -1,6 +1,6 @@
 <script setup>
-import LandingHeader from "../../common/components/LandingHeader.vue";
-import LandingFooter from "../../common/components/LandingFooter.vue";
+import LandingHeader from "../../modules/landing/components/LandingHeader.vue";
+import LandingFooter from "../../modules/landing/components/LandingFooter.vue";
 </script>
 
 <template>

@@ -26,7 +26,12 @@ const isVisible = ref(false);
         </div>
       </div>
       <div class="accordionItem">
-        <img src="../../assets/images/landing/open.svg" />
+        <template v-if="isVisible">
+          <img src="../../../assets/images/landing/open.svg"
+        /></template>
+        <template v-else>
+          <img src="../../../assets/images/landing/closed.svg" />
+        </template>
       </div>
     </div>
   </div>

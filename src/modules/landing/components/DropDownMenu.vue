@@ -1,9 +1,5 @@
 <script setup>
 import { ref, defineProps } from "vue";
-import { RouterLink, useRouter } from "vue-router";
-
-const router = useRouter();
-
 const props = defineProps({
   class: {
     type: String,
@@ -20,12 +16,6 @@ const isVisible = ref(false);
 const menuToggle = () => {
   isVisible.value = !isVisible.value;
 };
-
-const handleNavigation = (route) => {
-  if (!route) return;
-  router.push(route);
-  isVisible.value = false;
-};
 </script>
 
 <template>
@@ -33,13 +23,13 @@ const handleNavigation = (route) => {
     <div class="dropdown-content" @click="menuToggle">
       <span class="current_lang"> {{ text }} </span>
 
-      <img src="../../assets/images/landing/arrow-down.png" alt="" />
+      <img src="../../../assets/images/landing/arrow-down.png" alt="" />
     </div>
     <div class="dropdown-menu" v-show="isVisible">
       <ul>
-        <li @click="handleNavigation('/study-in-italy')">Обучение в Италии</li>
-        <li @click="handleNavigation('/study-in-italy')">Обучение в Италии</li>
-        <li @click="handleNavigation('/study-in-italy')">Обучение в Италии</li>
+        <li>каз</li>
+        <li>рус</li>
+        <li>en</li>
       </ul>
     </div>
   </div>
@@ -59,7 +49,6 @@ const handleNavigation = (route) => {
 .dropdown-content {
   display: flex;
   align-items: center;
-  justify-content: space-between;
 }
 
 .dropdown-menu {
@@ -83,9 +72,6 @@ const handleNavigation = (route) => {
 
 .dropdown-menu ul li {
   width: 100%;
-  border: 1px solid #031a5b;
-  border-radius: 47px;
-  padding: 8px 34px;
 }
 
 .dropdown img {
