@@ -64,7 +64,7 @@ const formData = ref({
         >
       </div>
 
-      <button class="submitBtn" type="submit">Вход</button>
+      <button class="submitBtn" type="submit">Регистрация</button>
     </form>
   </div>
 </template>

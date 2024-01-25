@@ -47,7 +47,7 @@ const handleNavigation = (route) => {
 
 <style scoped>
 .dropdown {
-  padding: 11px 22px;
+  padding: 11px 10px 11px 22px;
   border: 1px solid var(--color-main);
   border-radius: 26px;
   font-weight: 600;

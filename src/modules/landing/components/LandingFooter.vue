@@ -11,7 +11,41 @@
                 mauris sed ma
               </p>
               <ul class="socialLinks">
-                <li><a href="/" target="_blank"></a></li>
+                <li>
+                  <a href="/" target="_blank"
+                    ><img
+                      src="../../../assets/images/landing/facebook.svg"
+                      alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="/" target="_blank"
+                    ><img
+                      src="../../../assets/images/landing/twitter.svg"
+                      alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="/" target="_blank"
+                    ><img
+                      src="../../../assets/images/landing/instagram.svg"
+                      alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="/" target="_blank"
+                    ><img
+                      src="../../../assets/images/landing/linkedin.svg"
+                      alt=""
+                  /></a>
+                </li>
+                <li>
+                  <a href="/" target="_blank"
+                    ><img
+                      src="../../../assets/images/landing/youtube.svg"
+                      alt=""
+                  /></a>
+                </li>
               </ul>
             </div>
 
@@ -75,6 +109,10 @@
   margin-top: auto;
 }
 
+.footerMainInfo {
+  padding-bottom: 139px;
+  border-bottom: 1px solid #d4d2e3;
+}
 .footerItems {
   display: flex;
   justify-content: space-between;
@@ -131,5 +169,11 @@
   font-weight: 400;
   line-height: 18px;
   color: #9795b5;
+}
+
+.socialLinks {
+  display: flex;
+  align-items: center;
+  gap: 16px;
 }
 </style>

@@ -1,5 +1,6 @@
 <script setup>
 import Accordion from "../components/Accordion.vue";
+import DropDownMenu from "../components/DropDownMenu.vue";
 </script>
 
 <template>
@@ -497,10 +498,15 @@ import Accordion from "../components/Accordion.vue";
                   />
                 </div>
                 <div class="formGroup">
-                  <input
+                  <!-- <input
                     type="text"
                     class="formInput"
                     placeholder="Куда вы хотели бы поступить?"
+                  /> -->
+
+                  <DropDownMenu
+                    text="Куда вы хотели бы поступить?"
+                    class="formInput formDropDown"
                   />
                 </div>
 
@@ -520,8 +526,6 @@ import Accordion from "../components/Accordion.vue";
       </div>
     </section>
   </div>
-
- 
 </template>
 
 <style scoped>
@@ -972,6 +976,12 @@ import Accordion from "../components/Accordion.vue";
   font-family: "DM Sans", sans-serif;
 }
 
+.formDropDown {
+  color: #adabc3;
+  border: none;
+  font-weight: 400;
+}
+
 .formInput::placeholder {
   color: #adabc3;
 }
@@ -989,6 +999,4 @@ import Accordion from "../components/Accordion.vue";
   line-height: 18px;
   font-family: "Gilroy", sans-serif;
 }
-
-
 </style>

@@ -77,3 +77,10 @@ body {
 .templateSlider .swiper-pagination-bullet-active {
   background: var(--color-main);
 }
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+    padding: 0 !important;
+  }
+}

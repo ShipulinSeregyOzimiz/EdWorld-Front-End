@@ -37,7 +37,7 @@ const menuToggle = () => {
 
 <style scoped>
 .dropdown {
-  padding: 11px 22px;
+  padding: 11px 10px 11px 22px;
   border: 1px solid var(--color-main);
   border-radius: 26px;
   font-weight: 600;
@@ -49,6 +49,7 @@ const menuToggle = () => {
 .dropdown-content {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .dropdown-menu {
@@ -72,6 +73,7 @@ const menuToggle = () => {
 
 .dropdown-menu ul li {
   width: 100%;
+  color: var(--color-main);
 }
 
 .dropdown img {
