@@ -218,6 +218,9 @@ import TemplateSlider from "../components/TemplateSlider.vue";
 
 .infoItem {
   position: relative;
+  overflow: hidden;
+  border-radius: 32px;
+  cursor: pointer;
 }
 
 .infoItem::before {
@@ -235,6 +238,11 @@ import TemplateSlider from "../components/TemplateSlider.vue";
   position: absolute;
   z-index: -1;
   border-radius: 20px;
+  transition: transform 0.5s;
+}
+
+.infoItem:hover img {
+  transform: scale(1.5);
 }
 
 .banner1 {
