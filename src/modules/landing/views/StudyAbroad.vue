@@ -518,7 +518,7 @@ onMounted(() => {});
       </section>
     </div>
 
-    <section class="form_section">
+    <section class="form_section" id="form">
       <div class="container">
         <div class="form">
           <div class="formItems">

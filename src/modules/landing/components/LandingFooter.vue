@@ -64,11 +64,9 @@
 
               <ul class="footerItemList">
                 <li>
-                  <a href="tel:+77006674048"
-                    >г. Алматы, ул. Улица Клочкова, 106</a
-                  >
+                  <a href="">г. Алматы, ул. Улица Клочкова, 106</a>
                 </li>
-                <li><a href="tel:+77079789781">г. Астана</a></li>
+                <li><a href="">г. Астана</a></li>
               </ul>
             </div>
 
@@ -76,8 +74,8 @@
               <h2 class="footerListTitle footerRu">Образование за рубежом</h2>
 
               <ul class="footerItemList">
-                <li><a href="tel:+77006674048">Обучение в Италии</a></li>
-                <li><a href="tel:+77079789781">Обучение в Чехии</a></li>
+                <li><a href="">Обучение в Италии</a></li>
+                <li><a href="">Обучение в Чехии</a></li>
                 <li><a href="#">Обучение в Турции</a></li>
                 <li><a href="#">Наши кейсы</a></li>
                 <li><a href="#">Отзывы</a></li>
@@ -88,9 +86,9 @@
               <h2 class="footerListTitle">Языковая школа</h2>
 
               <ul class="footerItemList">
-                <li><a href="tel:+77006674048">Курса английского языка</a></li>
+                <li><a href="">Курса английского языка</a></li>
                 <li>
-                  <a href="tel:+77079789781">Тест по определению уровня</a>
+                  <a href="">Тест по определению уровня</a>
                 </li>
                 <li><a href="#">Отзывы</a></li>
               </ul>
@@ -176,6 +174,10 @@
   color: #9795b5;
 }
 
+.footerItemList li a:hover {
+  text-decoration: underline;
+}
+
 .socialLinks {
   display: flex;
   align-items: center;
@@ -192,7 +194,7 @@
 }
 
 .lukText a {
-  color: #ADABC3;
+  color: #adabc3;
   text-decoration: underline;
 }
 </style>

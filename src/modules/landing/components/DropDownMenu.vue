@@ -17,6 +17,12 @@ const props = defineProps({
 
 const isVisible = ref(false);
 const dropDown = ref(null);
+const select = ref(null);
+
+const selectEl = (el) => {
+  select.value = el;
+  isVisible.value = false;
+};
 
 const menuToggle = () => {
   isVisible.value = !isVisible.value;
@@ -40,14 +46,16 @@ onBeforeMount(() => {
 <template>
   <div class="dropdown" :class="class" ref="dropDown">
     <div class="dropdown-content" @click="menuToggle">
-      <span class="current_lang"> {{ text }} </span>
+      <span class="current_lang" :class="{ active: select }">
+        {{ select || text }}
+      </span>
 
       <img src="../../../assets/images/landing/arrow-down.png" alt="" />
     </div>
     <div class="dropdown-menu" v-show="isVisible">
       <ul v-if="options.length > 0">
         <template v-for="(option, index) in options" :key="index">
-          <li>{{ option.text }}</li>
+          <li @click="selectEl(option.text)">{{ option.text }}</li>
         </template>
       </ul>
     </div>
@@ -99,5 +107,9 @@ onBeforeMount(() => {
   width: 24px;
   height: 24px;
   margin-left: 6px;
+}
+
+.active {
+  color: var(--color-main);
 }
 </style>

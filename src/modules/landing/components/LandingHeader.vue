@@ -66,7 +66,7 @@ const langs = [
         <div class="rightContent">
           <DropdownMenu text="Языковая школа" class="dropdownL" />
           <RouterLink to="/auth/login" class="authLink">Войти</RouterLink>
-          <a href="/" class="submitApplicationLink">Оставить заявку</a>
+          <a href="#form" class="submitApplicationLink">Оставить заявку</a>
         </div>
       </div>
     </div>
@@ -114,6 +114,11 @@ const langs = [
   color: var(--color-white);
   background-color: var(--color-secondary);
   border-radius: 39px;
+  transition: opacity 0.3s;
+}
+
+.submitApplicationLink:hover {
+  opacity: 0.7;
 }
 
 .lang {
