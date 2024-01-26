@@ -33,6 +33,7 @@ const handleSubmit = () => {
         <Input
           v-model="formData.phone"
           placeholder="+7 777 777 77 77"
+          v-mask="'+7 (###) ### ## ##'"
           class="input"
         />
       </div>

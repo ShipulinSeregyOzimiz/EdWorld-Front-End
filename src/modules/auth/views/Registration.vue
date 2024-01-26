@@ -3,6 +3,7 @@ import { ref } from "vue";
 import RegistrationForm from "../components/RegistrationForm.vue";
 import { useAuthUserStore } from "@/stores/authUser";
 import { registerUser } from "@/api/modules/auth/requests/";
+import { errorNotify } from "@/common/utils/notifications";
 
 const authUserStore = useAuthUserStore();
 
@@ -14,6 +15,7 @@ const handleSubmit = async ({ name, phone, password }) => {
   try {
     const response = await registerUser(name, phone, password);
 
+    // Вернуть данные в map формате
     const dto = {
       fullName: response?.user?.name,
       roleId: response?.user?.role_id,
@@ -22,6 +24,7 @@ const handleSubmit = async ({ name, phone, password }) => {
 
     authUserStore.setUser(dto);
   } catch (err) {
+    errorNotify("Произошла ошибка. Проверьте данные");
   } finally {
     loading.value = false;
   }

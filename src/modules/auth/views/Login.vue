@@ -3,6 +3,7 @@ import { ref } from "vue";
 import LoginForm from "@/modules/auth/components/LoginForm.vue";
 import { useAuthUserStore } from "@/stores/authUser";
 import { loginUser } from "@/api/modules/auth/requests/";
+import { errorNotify } from "@/common/utils/notifications";
 
 const authUserStore = useAuthUserStore();
 
@@ -22,6 +23,7 @@ const handleSubmit = async ({ name, phone, password }) => {
 
     authUserStore.setUser(dto);
   } catch (err) {
+    errorNotify("Произошла ошибка. Проверьте данные");
   } finally {
     loading.value = false;
   }
