@@ -50,7 +50,7 @@ onBeforeMount(() => {
         {{ select || text }}
       </span>
 
-      <img src="../../../assets/images/landing/arrow-down.png" alt="" />
+      <img src="../../../assets/images/landing/arrow-down.svg" alt="" />
     </div>
     <div class="dropdown-menu" v-show="isVisible">
       <ul v-if="options.length > 0">
