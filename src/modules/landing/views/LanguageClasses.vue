@@ -7,7 +7,7 @@
         <div class="banner">
           <img src="../../../assets/images/landing/banner.png" alt="" />
           <div class="bannerTextContent">
-            <h2 class="bannerTitle">Наши кейсы</h2>
+            <h2 class="bannerTitle">Языковые курсы</h2>
             <p class="bannerDesc">
               Lorem ipsum dolor sit amet consectetur adipiscing eli mattis sit
               phasellus mollis sit aliquam sit nullam neque ultrices.
@@ -126,7 +126,9 @@
   font-size: 64px;
   font-weight: 700;
   line-height: 66px;
-  margin-bottom: 16px;
+  padding-bottom: 16px;
+  margin: 0 auto;
+  max-width: 429px;
 }
 
 .bannerDesc {

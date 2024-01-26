@@ -28,6 +28,13 @@ const navigationRoutes = [
   },
 ];
 
+const langCourse = [
+  {
+    name: "Языковые курсы",
+    link: "/language-classes",
+  },
+];
+
 const langs = [
   {
     text: "ру",
@@ -64,7 +71,11 @@ const langs = [
           </a>
         </div>
         <div class="rightContent">
-          <DropdownMenu text="Языковая школа" class="dropdownL" />
+          <NavigationDropDownMenu
+            text="Языковая школа"
+            :routes="langCourse"
+            class="dropdownL"
+          />
           <RouterLink to="/auth/login" class="authLink">Войти</RouterLink>
           <a href="#form" class="submitApplicationLink">Оставить заявку</a>
         </div>
