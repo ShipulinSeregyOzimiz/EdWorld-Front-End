@@ -137,7 +137,12 @@ const handleEndTest = () => {
               </div>
 
               <div class="testActions">
-                <button class="testButton" @click="prevStep" type="button">
+                <button
+                  class="testButton"
+                  :class="{ testDisabled: step < 1 }"
+                  @click="prevStep"
+                  type="button"
+                >
                   назад
                 </button>
                 <template v-if="step === questions.length - 1">

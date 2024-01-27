@@ -37,13 +37,13 @@ const langCourse = [
 
 const langs = [
   {
-    text: "ру",
+    text: "eng",
   },
   {
-    text: "каз",
+    text: "рус",
   },
   {
-    text: "en",
+    text: "қаз",
   },
 ];
 
@@ -55,7 +55,7 @@ const langs = [
     <div class="container">
       <div class="headerContent">
         <div class="leftContent">
-          <DropdownMenu class="lang" text="Ру" :options="langs" />
+          <DropdownMenu class="lang" text="рус" :options="langs" />
           <NavigationDropDownMenu
             text="Образование за рубежом"
             :routes="navigationRoutes"
@@ -97,7 +97,7 @@ const langs = [
 .leftContent {
   display: flex;
   align-items: center;
-  gap: 128px;
+  gap: 121px;
 }
 .rightContent {
   display: flex;
@@ -112,6 +112,10 @@ const langs = [
   font-weight: 600;
   color: var(--color-main);
   margin-right: 18px;
+  transition: opacity 0.3s;
+}
+.authLink:hover {
+  opacity: 0.7;
 }
 
 .submitApplicationLink {

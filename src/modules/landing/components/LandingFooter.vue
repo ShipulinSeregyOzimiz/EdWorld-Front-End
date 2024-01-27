@@ -74,11 +74,21 @@
               <h2 class="footerListTitle footerRu">Образование за рубежом</h2>
 
               <ul class="footerItemList">
-                <li><a href="">Обучение в Италии</a></li>
-                <li><a href="">Обучение в Чехии</a></li>
-                <li><a href="#">Обучение в Турции</a></li>
-                <li><a href="#">Наши кейсы</a></li>
-                <li><a href="#">Отзывы</a></li>
+                <li>
+                  <RouterLink to="/study-in-italy"
+                    >Обучение в Италии</RouterLink
+                  >
+                </li>
+                <li>
+                  <RouterLink to="/study-in-czech">Обучение в Чехии</RouterLink>
+                </li>
+                <li>
+                  <RouterLink to="/study-in-turkey"
+                    >Обучение в Турции</RouterLink
+                  >
+                </li>
+                <li><RouterLink to="/our-cases">Наши кейсы</RouterLink></li>
+                <li><RouterLink to="/reviews">Отзывы</RouterLink></li>
               </ul>
             </div>
 
@@ -86,11 +96,17 @@
               <h2 class="footerListTitle">Языковая школа</h2>
 
               <ul class="footerItemList">
-                <li><a href="">Курса английского языка</a></li>
                 <li>
-                  <a href="">Тест по определению уровня</a>
+                  <RouterLink to="/language-classes"
+                    >Курса английского языка</RouterLink
+                  >
                 </li>
-                <li><a href="#">Отзывы</a></li>
+                <li>
+                  <RouterLink to="/english-level-test"
+                    >Тест по определению уровня</RouterLink
+                  >
+                </li>
+                <li><RouterLink to="/reviews">Отзывы</RouterLink></li>
               </ul>
             </div>
           </div>
@@ -104,6 +120,10 @@
     </div>
   </footer>
 </template>
+
+<script setup>
+import { RouterLink } from "vue-router";
+</script>
 
 <style scoped>
 .footer {

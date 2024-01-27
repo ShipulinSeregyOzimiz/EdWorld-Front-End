@@ -73,8 +73,14 @@ onBeforeMount(() => {
 </template>
 
 <style scoped>
+.current_lang {
+  transition: opacity 0.3s;
+}
+
+.dropdown:hover .current_lang {
+  opacity: 0.7;
+}
 .dropdown {
-  padding: 11px 10px 11px 22px;
   border: 1px solid var(--color-main);
   border-radius: 26px;
   font-weight: 600;
@@ -84,6 +90,7 @@ onBeforeMount(() => {
   position: relative;
 }
 .dropdown-content {
+  padding: 11px 10px 11px 22px;
   display: flex;
   align-items: center;
   justify-content: space-between;

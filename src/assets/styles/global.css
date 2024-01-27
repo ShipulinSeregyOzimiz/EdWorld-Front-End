@@ -105,3 +105,19 @@ body {
   color: #dc2626;
   margin-top: 4px;
 }
+
+.bannerActions a {
+  transition: opacity 0.3s;
+}
+
+.bannerActions a:hover {
+  opacity: 0.7;
+}
+
+.dropdown-menu ul li {
+  transition: opacity 0.3s;
+}
+
+.dropdown-menu ul li:hover {
+  opacity: 0.5;
+}

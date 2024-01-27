@@ -573,6 +573,7 @@ onMounted(() => {});
                     type="text"
                     class="formInput"
                     placeholder="Номер телефона"
+                    v-mask="'+7 (###) ### ## ##'"
                     :class="{ error: v$.phone.$errors.length }"
                   />
                   <div
@@ -695,6 +696,7 @@ onMounted(() => {});
 }
 
 .resultsItemTitle {
+  min-height: 72px;
   font-size: 22px;
   font-weight: 600;
   color: var(--color-main);
@@ -1067,6 +1069,7 @@ onMounted(() => {});
 }
 
 .formDropDown {
+  padding: 0;
   color: #adabc3;
   border: none;
   font-weight: 400;
