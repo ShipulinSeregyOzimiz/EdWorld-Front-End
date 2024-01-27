@@ -15,7 +15,7 @@ instance.interceptors.request.use(
 
     const auth = useAuthUserStore();
     if (auth?.$state?.token) {
-      config.headers["Token"] = `${auth.$state.token}`;
+      config.headers["Authorization"] = `Bearer ${auth.$state.token}`;
     }
 
     return config;

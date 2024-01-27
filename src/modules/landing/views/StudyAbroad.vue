@@ -3,44 +3,64 @@ import { onMounted, ref } from "vue";
 import Accordion from "../components/Accordion.vue";
 import DropDownMenu from "../components/DropDownMenu.vue";
 import { sendApplication } from "@/api/modules/landing/requests/";
+import { useVuelidate } from "@vuelidate/core";
+import { required, minLength, helpers } from "@vuelidate/validators";
 
 // Нужно будет вынести отдельно в директорию constants
 
 const country = [
   {
     text: "Италия",
+    id: 1,
   },
   {
     text: "Чехия",
+    id: 2,
   },
   {
     text: "Турция",
+    id: 3,
   },
 ];
 
 //
 
 const applicationForm = ref({
-  phone: "77777777777",
-  name: "name",
-  place: "2",
+  phone: "",
+  name: "",
+  place: "",
 });
 
 const applicationLoading = ref(false);
 const applicationError = ref(null);
 
+const handleSelected = (el) => {
+  applicationForm.value.place = el;
+};
+
+const validations = ref({
+  phone: { required: helpers.withMessage("Обязательное поле", required) },
+  name: { required: helpers.withMessage("Обязательное поле", required) },
+  place: { required: helpers.withMessage("Обязательное поле", required) },
+});
+
+const v$ = useVuelidate(validations.value, applicationForm.value);
+
 const handleSendApplication = async () => {
-  applicationError.value = null;
-  applicationLoading.value = true;
+  const result = await v$.value.$validate();
+  if (result) {
+    applicationError.value = null;
+    applicationLoading.value = true;
 
-  try {
-    const response = await sendApplication();
+    try {
+      const response = await sendApplication(applicationForm.value);
 
-    console.log(response);
-  } catch (err) {
-    applicationError.value = err;
-  } finally {
-    applicationLoading.value = false;
+      console.log(response);
+    } catch (err) {
+      applicationError.value = err;
+    } finally {
+      applicationLoading.value = false;
+    }
   }
 };
 
@@ -537,7 +557,15 @@ onMounted(() => {});
                     type="text"
                     class="formInput"
                     placeholder="Ваше Имя"
+                    :class="{ error: v$.name.$errors.length }"
                   />
+                  <div
+                    class="input-errors"
+                    v-for="error of v$.name.$errors"
+                    :key="error.$uid"
+                  >
+                    <div class="error-msg">{{ error.$message }}</div>
+                  </div>
                 </div>
                 <div class="formGroup">
                   <input
@@ -545,14 +573,31 @@ onMounted(() => {});
                     type="text"
                     class="formInput"
                     placeholder="Номер телефона"
+                    :class="{ error: v$.phone.$errors.length }"
                   />
+                  <div
+                    class="input-errors"
+                    v-for="error of v$.phone.$errors"
+                    :key="error.$uid"
+                  >
+                    <div class="error-msg">{{ error.$message }}</div>
+                  </div>
                 </div>
                 <div class="formGroup">
                   <DropDownMenu
+                    @selected="handleSelected"
                     text="Куда вы хотели бы поступить?"
                     :options="country"
                     class="formInput formDropDown"
+                    :class="{ error: v$.place.$errors.length }"
                   />
+                  <div
+                    class="input-errors"
+                    v-for="error of v$.place.$errors"
+                    :key="error.$uid"
+                  >
+                    <div class="error-msg">{{ error.$message }}</div>
+                  </div>
                 </div>
 
                 <button

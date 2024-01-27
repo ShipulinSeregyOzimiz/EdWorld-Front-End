@@ -1,6 +1,8 @@
 <script setup>
 import { ref, defineProps, defineEmits } from "vue";
 import { RouterLink } from "vue-router";
+import { useVuelidate } from "@vuelidate/core";
+import { required, minLength, helpers } from "@vuelidate/validators";
 import Input from "@/common/components/Input.vue";
 
 const props = defineProps({
@@ -18,8 +20,22 @@ const formData = ref({
   password: "",
 });
 
-const handleSubmit = () => {
-  emits("onSubmit", formData.value);
+const validations = ref({
+  name: { required: helpers.withMessage("Обязательное поле", required) },
+  phone: { required: helpers.withMessage("Обязательное поле", required) },
+  password: {
+    required: helpers.withMessage("Обязательное поле", required),
+    minLength: helpers.withMessage("Минимум 8 символов", minLength(8)),
+  },
+});
+
+const v$ = useVuelidate(validations.value, formData.value);
+
+const handleSubmit = async () => {
+  const result = await v$.value.$validate();
+  if (result) {
+    emits("onSubmit", formData.value);
+  }
 };
 </script>
 
@@ -34,7 +50,15 @@ const handleSubmit = () => {
           v-model="formData.name"
           placeholder="Асанова Асем Раимкулова"
           class="input"
+          :class="{ error: v$.name.$errors.length }"
         />
+        <div
+          class="input-errors"
+          v-for="error of v$.name.$errors"
+          :key="error.$uid"
+        >
+          <div class="error-msg">{{ error.$message }}</div>
+        </div>
       </div>
       <div class="formGroup">
         <label for="">Почта<span>*</span></label>
@@ -47,11 +71,23 @@ const handleSubmit = () => {
           placeholder="+7 777 777 77 77"
           v-mask="'+7 (###) ### ## ##'"
           class="input"
+          :class="{ error: v$.phone.$errors.length }"
         />
+        <div
+          class="input-errors"
+          v-for="error of v$.phone.$errors"
+          :key="error.$uid"
+        >
+          <div class="error-msg">{{ error.$message }}</div>
+        </div>
       </div>
+
       <div class="formGroup">
         <label for="">Пароль<span>*</span></label>
-        <div class="passwordWrapper">
+        <div
+          class="passwordWrapper"
+          :class="{ error: v$.phone.$errors.length }"
+        >
           <Input
             v-model="formData.password"
             placeholder="Мин. 8 символов"
@@ -59,6 +95,13 @@ const handleSubmit = () => {
             htmlType="password"
           />
           <img src="../../../assets/images/auth/eyes.png" class="eyes" alt="" />
+        </div>
+        <div
+          class="input-errors"
+          v-for="error of v$.password.$errors"
+          :key="error.$uid"
+        >
+          <div class="error-msg">{{ error.$message }}</div>
         </div>
       </div>
       <div class="formActions mt-10">

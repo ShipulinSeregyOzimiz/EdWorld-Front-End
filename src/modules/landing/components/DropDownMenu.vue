@@ -1,5 +1,8 @@
 <script setup>
-import { ref, defineProps, onMounted, onBeforeMount } from "vue";
+import { ref, defineProps, onMounted, onBeforeMount, defineEmits } from "vue";
+
+const emits = defineEmits(["selected"]);
+
 const props = defineProps({
   class: {
     type: String,
@@ -20,8 +23,11 @@ const dropDown = ref(null);
 const select = ref(null);
 
 const selectEl = (el) => {
-  select.value = el;
+  select.value = el.text;
   isVisible.value = false;
+  if (el.id) {
+    emits("selected", el.id);
+  }
 };
 
 const menuToggle = () => {
@@ -55,7 +61,7 @@ onBeforeMount(() => {
     <div class="dropdown-menu" v-show="isVisible">
       <ul v-if="options.length > 0">
         <template v-for="(option, index) in options" :key="index">
-          <li @click="selectEl(option.text)">{{ option.text }}</li>
+          <li @click="selectEl(option)">{{ option.text }}</li>
         </template>
       </ul>
     </div>

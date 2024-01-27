@@ -1,10 +1,11 @@
 import request from "@/api/request";
-import { withUnauthorizedHandler } from "../../../hooks/withUnauthorizedHandler.js";
 
 export const sendApplication = async (payload) => {
-  const response = await withUnauthorizedHandler(
-    request.post(`/api/applications/`)
-  );
+  const response = await request.post(`/api/applications/`, {
+    name: payload.name,
+    phone: payload.phone,
+    place: payload.place,
+  });
 
   return response;
 };
