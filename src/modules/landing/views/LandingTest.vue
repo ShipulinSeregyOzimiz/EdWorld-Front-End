@@ -1,38 +1,61 @@
 <script setup>
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useVuelidate } from "@vuelidate/core";
+import { required, helpers } from "@vuelidate/validators";
+import {
+  fetchAllQuestions,
+  sendAnswer,
+  sendAnswerForm,
+} from "@/api/modules/landing/requests/";
 import Input from "../../../common/components/Input.vue";
 
-const questions = [
-  {
-    question: "1. I ________________ from France.",
-    variants: ["is", "are", "am", "be"],
-  },
-  {
-    question: "2. I ________________ from England.",
-    variants: ["is", "are", "am", "be"],
-  },
-  {
-    question: "3. I ________________ from Finland.",
-    variants: ["is", "are", "am", "be"],
-  },
-  {
-    question: "4. I ________________ from Uzbekistan.",
-    variants: ["is", "are", "am", "be"],
-  },
-];
+const questions = ref([]);
+const selectedAnswerId = ref("");
 
 const step = ref(0);
 const isVisibleForm = ref(false);
 const formData = ref({
+  test_id: 1,
   name: "",
   email: "",
-  phoneNumber: "",
+  phone: "",
   message: "",
 });
 
-const nextStep = () => {
-  if (step.value === questions.length - 1) return;
-  step.value++;
+const validations = ref({
+  name: { required: helpers.withMessage("Обязательное поле", required) },
+  email: { required: helpers.withMessage("Обязательное поле", required) },
+  phone: { required: helpers.withMessage("Обязательное поле", required) },
+  message: {
+    required: helpers.withMessage("Обязательное поле", required),
+  },
+});
+
+const v$ = useVuelidate(validations.value, formData.value);
+
+const handleSubmit = async () => {
+  const result = await v$.value.$validate();
+  if (result) {
+    try {
+      const response = await sendAnswerForm(formData.value);
+      console.log(response);
+    } catch (err) {
+      console.log(err);
+      throw err;
+    } finally {
+    }
+  }
+};
+
+const nextStep = async (userTestId) => {
+  if (step.value === questions.value.length - 1) {
+    isVisibleForm.value = true;
+    return;
+  }
+  if (userTestId && selectedAnswerId.value) {
+    await handleAnswer(userTestId, selectedAnswerId.value);
+    step.value++;
+  }
 };
 
 const prevStep = () => {
@@ -41,9 +64,38 @@ const prevStep = () => {
   }
 };
 
-const handleEndTest = () => {
-  isVisibleForm.value = true;
+async function handleAnswer(userTestId, testAnswerId) {
+  const dto = {
+    userTestId,
+    testAnswerId,
+  };
+  try {
+    const response = await sendAnswer(dto);
+    console.log(response);
+  } catch (err) {
+    console.log(err);
+    throw err;
+  } finally {
+  }
+}
+
+const loadQuestions = async () => {
+  try {
+    const response = await fetchAllQuestions();
+
+    questions.value = response.data;
+  } catch (err) {
+  } finally {
+  }
 };
+
+function handleChangeAnswerId(id) {
+  selectedAnswerId.value = id;
+}
+
+onMounted(() => {
+  loadQuestions();
+});
 </script>
 
 <template>
@@ -84,27 +136,63 @@ const handleEndTest = () => {
           <div class="testContent">
             <template v-if="isVisibleForm">
               <div class="testSendForm">
-                <form>
+                <form @submit.prevent="handleSubmit">
                   <div class="formGroup">
-                    <Input v-model="formData.name" placeholder="John Carter" />
+                    <Input
+                      v-model="formData.name"
+                      :class="{ error: v$.name.$errors.length }"
+                      placeholder="John Carter"
+                    />
+                    <div
+                      class="input-errors"
+                      v-for="error of v$.name.$errors"
+                      :key="error.$uid"
+                    >
+                      <div class="error-msg">{{ error.$message }}</div>
+                    </div>
                   </div>
                   <div class="formGroup">
                     <Input
                       v-model="formData.email"
+                      :class="{ error: v$.email.$errors.length }"
                       placeholder="example@email.com"
                     />
+                    <div
+                      class="input-errors"
+                      v-for="error of v$.email.$errors"
+                      :key="error.$uid"
+                    >
+                      <div class="error-msg">{{ error.$message }}</div>
+                    </div>
                   </div>
                   <div class="formGroup">
                     <Input
-                      v-model="formData.phoneNumber"
+                      v-model="formData.phone"
+                      :class="{ error: v$.phone.$errors.length }"
+                      v-mask="'+7 (###) ### ## ##'"
                       placeholder="(123) 456 - 789"
                     />
+                    <div
+                      class="input-errors"
+                      v-for="error of v$.phone.$errors"
+                      :key="error.$uid"
+                    >
+                      <div class="error-msg">{{ error.$message }}</div>
+                    </div>
                   </div>
                   <div class="formGroup">
                     <Input
                       v-model="formData.message"
+                      :class="{ error: v$.message.$errors.length }"
                       placeholder="Please type your message here..."
                     />
+                    <div
+                      class="input-errors"
+                      v-for="error of v$.message.$errors"
+                      :key="error.$uid"
+                    >
+                      <div class="error-msg">{{ error.$message }}</div>
+                    </div>
                   </div>
 
                   <button class="testSendButton" type="submit">
@@ -113,26 +201,25 @@ const handleEndTest = () => {
                 </form>
               </div>
             </template>
-            <template v-else>
+            <template v-else-if="questions.length > 0">
               <div class="testStep">{{ step + 1 }}/{{ questions.length }}</div>
-              <h2 class="testQuestion">{{ questions[step]?.question }}</h2>
+              <h2 class="testQuestion">
+                {{ step + 1 }}. {{ questions[step]?.description }}
+              </h2>
 
               <div class="testItems">
-                <div class="testItem">
-                  <input type="radio" id="is" name="verb" />
-                  <label for="is">is</label>
-                </div>
-                <div class="testItem">
-                  <input type="radio" id="am" name="verb" />
-                  <label for="am">am</label>
-                </div>
-                <div class="testItem">
-                  <input type="radio" id="are" name="verb" />
-                  <label for="are">are</label>
-                </div>
-                <div class="testItem">
-                  <input type="radio" id="be" name="verb" />
-                  <label for="be">be</label>
+                <div
+                  class="testItem"
+                  v-for="question in questions[step]?.answers"
+                  :key="question.id"
+                >
+                  <input
+                    type="radio"
+                    :id="question.id"
+                    name="verb"
+                    @click="handleChangeAnswerId(question.id)"
+                  />
+                  <label :for="question.id">{{ question.text }}</label>
                 </div>
               </div>
 
@@ -145,20 +232,17 @@ const handleEndTest = () => {
                 >
                   назад
                 </button>
-                <template v-if="step === questions.length - 1">
-                  <button
-                    class="testButton"
-                    @click="handleEndTest"
-                    type="button"
-                  >
-                    завершить
-                  </button>
-                </template>
-                <template v-else>
-                  <button class="testButton" @click="nextStep" type="button">
-                    вперед
-                  </button>
-                </template>
+
+                <button
+                  class="testButton"
+                  @click="nextStep(questions[step]?.test_id)"
+                  type="button"
+                >
+                  <template v-if="step === questions.length - 1">
+                    Завершить
+                  </template>
+                  <template v-else> вперед</template>
+                </button>
               </div>
             </template>
           </div>
