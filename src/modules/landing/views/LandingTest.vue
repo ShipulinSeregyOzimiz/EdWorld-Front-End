@@ -18,7 +18,7 @@ const selectedAnswerId = ref("");
 const testId = ref("");
 
 const step = ref(0);
-const isVisibleForm = ref(true);
+const isVisibleForm = ref(false);
 const formData = ref({
   test_id: "",
   name: "",
