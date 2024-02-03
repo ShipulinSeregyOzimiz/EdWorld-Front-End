@@ -6,16 +6,21 @@ import {
   fetchAllQuestions,
   sendAnswer,
   sendAnswerForm,
+  createUserTest,
 } from "@/api/modules/landing/requests/";
 import Input from "../../../common/components/Input.vue";
+import { useTestLandingStore } from "@/stores/testLanding";
+
+const testStore = useTestLandingStore();
 
 const questions = ref([]);
 const selectedAnswerId = ref("");
+const testId = ref("");
 
 const step = ref(0);
-const isVisibleForm = ref(false);
+const isVisibleForm = ref(true);
 const formData = ref({
-  test_id: 1,
+  test_id: "",
   name: "",
   email: "",
   phone: "",
@@ -36,9 +41,11 @@ const v$ = useVuelidate(validations.value, formData.value);
 const handleSubmit = async () => {
   const result = await v$.value.$validate();
   if (result) {
+    if (testId.value) {
+      formData.value.test_id = testId.value;
+    }
     try {
       const response = await sendAnswerForm(formData.value);
-      console.log(response);
     } catch (err) {
       console.log(err);
       throw err;
@@ -47,13 +54,12 @@ const handleSubmit = async () => {
   }
 };
 
-const nextStep = async (userTestId) => {
+const nextStep = async () => {
   if (step.value === questions.value.length - 1) {
     isVisibleForm.value = true;
-    return;
   }
-  if (userTestId && selectedAnswerId.value) {
-    await handleAnswer(userTestId, selectedAnswerId.value);
+  if (testId.value && selectedAnswerId.value) {
+    await handleAnswer(testId.value, selectedAnswerId.value);
     step.value++;
   }
 };
@@ -82,7 +88,9 @@ async function handleAnswer(userTestId, testAnswerId) {
 const loadQuestions = async () => {
   try {
     const response = await fetchAllQuestions();
-
+    await testStore.getTestId(1);
+    testId.value = testStore.$state.testId;
+    console.log(testId.value);
     questions.value = response.data;
   } catch (err) {
   } finally {

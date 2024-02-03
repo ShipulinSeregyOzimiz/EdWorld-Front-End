@@ -11,14 +11,6 @@ export const useAuthUserStore = defineStore("authUser", {
       return {
         ...state,
       };
-
-      // alternative if other modules are still in Vuex
-      // return {
-      //   ...state,
-      //   fullName: this.fullName,
-      //   ...vuexStore.state.auth.preferences,
-      //   ...vuexStore.getters['auth/email'].details
-      // }
     },
   },
   actions: {
