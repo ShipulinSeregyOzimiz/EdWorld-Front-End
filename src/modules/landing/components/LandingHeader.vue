@@ -64,7 +64,7 @@ const langs = [
         <div class="logoContent">
           <a href="/">
             <img
-              src="../../../assets/images/logo.svg"
+              src="../../../assets/images/logo.png"
               class="logo"
               alt="Logo"
             />
@@ -143,8 +143,12 @@ const langs = [
 .logoContent {
   background-color: #fff;
   border-radius: 50%;
-  margin-bottom: -71px;
   padding-bottom: 10px;
   z-index: 100;
+}
+
+.logo {
+  width: 140px;
+  height: 100px;
 }
 </style>

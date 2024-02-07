@@ -113,7 +113,7 @@
         </div>
 
         <div class="lukText">
-          Copyright © 2024 | All Rights Reserved |
+          Copyright © {{ currentYear }} | All Rights Reserved |
           <a href="#">Terms and Conditions</a> | <a href="#">Privacy Policy</a>
         </div>
       </div>
@@ -123,6 +123,9 @@
 
 <script setup>
 import { RouterLink } from "vue-router";
+
+const now = Date.now();
+const currentYear = new Date(now).getFullYear();
 </script>
 
 <style scoped>
