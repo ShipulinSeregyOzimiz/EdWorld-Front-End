@@ -389,6 +389,30 @@ onMounted(() => {
   border-radius: 50px;
 }
 
+@media (max-width: 1280px) {
+  .testItem {
+    width: 100%;
+  }
+  .testActions {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 479px) {
+  .testTitle {
+    font-size: 28px;
+  }
+  .testContent {
+    padding: 34px 26px;
+  }
+  .testQuestion {
+    font-size: 23px;
+  }
+  .testStep {
+    font-size: 22px !important;
+  }
+}
+
 label {
   font-size: 28px;
   font-weight: 600;

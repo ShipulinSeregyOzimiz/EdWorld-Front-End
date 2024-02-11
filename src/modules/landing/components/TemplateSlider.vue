@@ -1,9 +1,17 @@
 <template>
   <swiper
     :modules="modules"
-    :slides-per-view="2"
+    :slides-per-view="1"
     :space-between="27"
     navigation
+    :breakpoints="{
+      '768': {
+        slidesPerView: 1,
+      },
+      '1024': {
+        slidesPerView: 2,
+      },
+    }"
     :pagination="{ clickable: true }"
     @swiper="onSwiper"
     @slideChange="onSlideChange"
@@ -94,6 +102,17 @@ export default {
   border-radius: 20px;
   display: flex;
   align-items: center;
+}
+
+@media (max-width: 1024px) {
+  .item {
+    max-width: 100%;
+    flex-direction: column;
+    padding-bottom: 32px;
+  }
+  .itemTextContent {
+    text-align: center;
+  }
 }
 
 .itemTextContent {

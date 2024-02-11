@@ -128,4 +128,19 @@ export default {
   color: var(--color-main);
   margin-bottom: 16px;
 }
+
+@media (max-width: 1024px) {
+  .item {
+    flex-direction: column;
+    align-items: flex-start;
+    margin-bottom: 32px !important;
+  }
+  .itemTextContent {
+    padding: 50px 24px !important;
+    text-align: center;
+  }
+  .item img {
+    width: 100%;
+  }
+}
 </style>

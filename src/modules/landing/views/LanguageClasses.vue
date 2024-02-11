@@ -224,7 +224,15 @@
 
 .taglineItems {
   display: grid;
-  grid-template-columns: 579.69px 290.09px 290.09px;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); /* Изменено */
   gap: 28px;
+}
+
+/* Медиа-запрос для адаптации на маленьких экранах */
+@media screen and (max-width: 768px) {
+  .taglineItems {
+    display: flex;
+    flex-direction: column;
+  }
 }
 </style>

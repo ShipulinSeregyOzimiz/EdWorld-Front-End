@@ -141,6 +141,8 @@ const currentYear = new Date(now).getFullYear();
 }
 .footerItems {
   display: flex;
+  flex-wrap: wrap;
+  gap: 15px 0;
   justify-content: space-between;
 }
 
@@ -176,7 +178,7 @@ const currentYear = new Date(now).getFullYear();
 .footerListTitle {
   font-size: 20px;
   font-weight: 700;
-  color: #5d5a88;
+  color: #e4b548;
   margin-bottom: 40px;
 }
 

@@ -99,7 +99,7 @@ import OurCasesSlider from "../components/OurCasesSlider.vue";
       </section>
 
       <section class="templateSlider_section">
-        <div class="templateSlider">
+        <div class="templateSlider outSlider">
           <div class="templateSliderTextContent">
             <h2 class="templateSliderTitle">What our clients say</h2>
             <p class="templateSliderDesc">
@@ -257,7 +257,18 @@ import OurCasesSlider from "../components/OurCasesSlider.vue";
 .infoItems {
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 28px;
+}
+
+@media (max-width: 640px) {
+  .infoItem {
+    flex-direction: column;
+  }
+  .infoItemTextContent {
+    padding: 50px 24px !important;
+    text-align: center;
+  }
 }
 
 .infoItem {

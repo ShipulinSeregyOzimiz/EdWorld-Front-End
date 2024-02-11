@@ -69,8 +69,8 @@ onMounted(() => {});
 
 <template>
   <div class="wrapper">
-    <div class="container">
-      <section class="banner_section">
+    <section class="banner_section">
+      <div class="container off-container">
         <div class="banner">
           <img src="../../../assets/images/landing/banner.png" alt="" />
           <div class="bannerTextContent">
@@ -81,8 +81,9 @@ onMounted(() => {});
             </p>
           </div>
         </div>
-      </section>
-
+      </div>
+    </section>
+    <div class="container">
       <section class="results_section">
         <div class="results">
           <h2 class="resultsTitle">Наши результаты в цифрах</h2>
@@ -737,6 +738,7 @@ onMounted(() => {});
   border-radius: 26px;
   position: relative;
   z-index: 1;
+  overflow: hidden;
 }
 
 .leaveRequestItems::before {
@@ -806,8 +808,8 @@ onMounted(() => {});
 }
 
 .documentsItems {
-  row-gap: 28px;
-  justify-content: space-between;
+  gap: 28px 15px;
+  justify-content: center;
 }
 
 .documentsItem {
@@ -962,6 +964,7 @@ onMounted(() => {});
 .priceItems {
   gap: 56px;
   justify-content: center;
+  flex-wrap: wrap;
 }
 
 .faq_section {
@@ -1007,10 +1010,10 @@ onMounted(() => {});
 
 .form_section::before {
   content: "";
-  width: 410.94px;
-  height: 100%;
+  width: 100%;
+  height: 33%;
   position: absolute;
-  top: 0;
+  bottom: 0;
   right: 0;
   background-color: var(--color-secondary);
   z-index: -1;
@@ -1018,17 +1021,25 @@ onMounted(() => {});
 
 .formItems {
   display: flex;
+  flex-direction: column;
+  align-items: center;
   gap: 106px;
 }
 
 .formItem {
-  width: 50%;
+  width: 100%;
+}
+
+.formItem:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .formItem img {
   width: 100%;
-  max-width: 618.61px;
-  max-height: 567.67px;
+  /* max-width: 618.61px;
+  max-height: 567.67px; */
 }
 
 .contactText {
@@ -1091,5 +1102,11 @@ onMounted(() => {});
   font-size: 16px;
   line-height: 18px;
   font-family: "Gilroy", sans-serif;
+  margin: 0 auto;
+}
+
+.formAction {
+  width: 100%;
+  max-width: 416px;
 }
 </style>

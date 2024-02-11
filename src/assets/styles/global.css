@@ -121,3 +121,321 @@ body {
 .dropdown-menu ul li:hover {
   opacity: 0.5;
 }
+
+.resultsItems {
+  flex-wrap: wrap;
+  gap: 20px 0;
+}
+
+/* Adaptive  */
+
+@media (min-width: 640px) {
+}
+
+@media (min-width: 768px) {
+  .documentsItem {
+    max-width: 355px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .infoItems {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 1024px) {
+  .bannerTitle {
+    font-size: 36px !important;
+    line-height: normal !important;
+  }
+  .bannerDesc {
+    font-size: 18px !important;
+    line-height: normal !important;
+  }
+  .bannerTextContent {
+    padding-top: 10% !important;
+    padding: 0 20px !important;
+  }
+  .banner {
+    height: 421px !important;
+  }
+  .results_section {
+    padding: 100px 0 !important;
+  }
+  .leaveRequestItems {
+    height: auto !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+    padding: 40px 0;
+    gap: 25px !important;
+    padding-right: 15px !important;
+    padding-left: 15px !important;
+  }
+  .leaveRequestItems::before {
+    display: none !important;
+  }
+  .leaveRequestItem {
+    max-width: none !important;
+    flex-direction: row !important;
+    gap: 10px;
+  }
+  .leaveRequestItem span {
+    margin-bottom: 0 !important;
+  }
+  .documents_section {
+    padding: 100px 0 !important;
+  }
+  .leaveRequestTitle {
+    font-size: 36px !important;
+  }
+  .leaveRequestDesc {
+    font-size: 26px !important;
+  }
+  .priceTitle {
+    font-size: 36px !important;
+  }
+  .priceDesc {
+    font-size: 16px !important;
+  }
+  .documentsItemTitle {
+    font-size: 20px !important;
+    line-height: normal !important;
+  }
+  .documentsItemDesc {
+    font-size: 16px !important;
+    line-height: normal !important;
+  }
+  .formTitle {
+    font-size: 36px !important;
+  }
+  .submitApplicationLink {
+    font-size: 16px !important;
+  }
+  .authLink {
+    font-size: 16px !important;
+  }
+  .templateSlider .swiper-pagination {
+    position: relative !important;
+  }
+  .outSlider .swiper-button-next {
+    display: flex !important;
+    right: 25%;
+    top: inherit;
+  }
+  .outSlider .swiper-button-prev {
+    display: flex !important;
+    left: 25%;
+    top: inherit;
+  }
+
+  .templateSlider .swiper-button-next {
+    display: none;
+  }
+  .templateSlider .swiper-button-prev {
+    display: none;
+  }
+  .info_section {
+    padding: 100px 0 !important;
+  }
+}
+
+@media (max-width: 1156px) {
+  .headerContent {
+    width: 100%;
+    flex-direction: column;
+  }
+  .leftContent {
+    flex-direction: column;
+    gap: 0 !important;
+  }
+  .leftContent .dropdown {
+    width: 100%;
+    border-top: 1px solid #adabc3 !important;
+    border-bottom: 1px solid #adabc3 !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .rightContent {
+    flex-direction: column;
+  }
+  .rightContent .dropdown {
+    width: 100%;
+    margin-right: 0 !important;
+    border-top: 1px solid #adabc3 !important;
+    border-bottom: 1px solid #adabc3 !important;
+    border: none !important;
+    border-radius: 0 !important;
+  }
+  .section__header .dropdown .dropdown-content {
+    border-top: 1px solid #adabc3;
+    padding: 24px 0;
+  }
+  .section__header .dropdown .dropdown-menu {
+    position: relative !important;
+    box-shadow: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    border-bottom: 1px solid #adabc3;
+    border-radius: 0 !important;
+  }
+  .section__header .dropdown-menu ul li {
+    border: none !important;
+    font-size: 18px;
+  }
+  .section__header .dropdown-menu ul {
+    text-align: center;
+  }
+  .logoContent {
+    display: none;
+  }
+  .section__header .dropdown-content {
+    justify-content: center !important;
+    font-size: 20px;
+  }
+  .authLink {
+    font-size: 20px !important;
+    padding: 24px 0;
+    border-top: 1px solid #adabc3 !important;
+    border-bottom: 1px solid #adabc3 !important;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .submitApplicationLink {
+    width: 200px !important;
+    font-size: 20px !important;
+    margin: 24px 0;
+    height: 54px !important;
+  }
+  .bannerTitle {
+    line-height: normal !important;
+    margin-bottom: 10px;
+  }
+  .dropdown-content {
+    transition: background-color 0.3s;
+  }
+
+  .dropdown-content:hover {
+    background-color: var(--color-main);
+    color: var(--color-white) !important;
+  }
+
+  .authLink {
+    transition: background-color 0.3s;
+  }
+
+  .authLink:hover {
+    background-color: var(--color-main);
+    color: var(--color-white) !important;
+  }
+}
+
+@media (max-width: 479px) {
+  .documentsTitle {
+    font-size: 34px !important;
+    line-height: 33px !important;
+  }
+  .accordionTitle {
+    font-size: 18px !important;
+    line-height: normal !important;
+  }
+  .accordionContent {
+    line-height: normal !important;
+  }
+  .submitApplicationLink {
+    width: 100% !important;
+  }
+  .bannerTitle {
+    text-align: center;
+  }
+  .bannerDesc {
+    max-width: 382px !important;
+    text-align: center;
+    font-size: 14px !important;
+  }
+  .off-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding: 0 !important;
+  }
+  .banner1 {
+    height: 358px !important;
+  }
+  .banner2 {
+    height: 200px !important;
+  }
+  .banner3 {
+    height: 200px !important;
+  }
+  .infoItemTitle {
+    font-size: 18px !important;
+  }
+  .banner2TextContent {
+    padding: 26px 0 !important;
+  }
+  .infoItemTextContent {
+    padding: 26px 0 !important;
+  }
+  .infoItem {
+    text-align: center !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .leaveRequestItems::before {
+    width: 67% !important;
+  }
+  .documentsItem {
+    max-width: 388px !important;
+  }
+  .documentsItems {
+    justify-content: space-between !important;
+  }
+  .formItems {
+    flex-direction: row !important;
+  }
+  .formItem {
+    width: 50% !important;
+  }
+  .formItem:first-child {
+    display: block !important;
+  }
+  .form_section::before {
+    top: 0 !important;
+    width: 410.94px !important;
+    height: 100% !important;
+  }
+  .formButton {
+    margin: 0 !important;
+  }
+}
+
+@media (min-width: 1280px) {
+  .leaveRequestItems::before {
+    width: 74% !important;
+  }
+}
+
+@media (min-width: 1536px) {
+  .leaveRequestItems::before {
+    width: 78% !important;
+    background-repeat: repeat !important;
+  }
+}
+
+.header {
+  overflow: hidden;
+}
+
+.leaveRequestItems {
+  gap: 0 15px;
+}
+
+.open-menu {
+  height: 100%;
+}
+.closed-menu {
+  display: none;
+}

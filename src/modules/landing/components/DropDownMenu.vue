@@ -122,7 +122,4 @@ onBeforeMount(() => {
   margin-left: 6px;
 }
 
-.active {
-  color: var(--color-main);
-}
 </style>
