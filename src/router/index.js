@@ -88,7 +88,16 @@ const router = createRouter({
           path: "/dashboard",
           name: "navigationLayout",
           component: () => import("@/common/layouts/NavigationLayout.vue"),
-          children: [],
+          children: [
+            {
+              path: "library",
+              name: "library",
+              component: () =>
+                import(
+                  "@/modules/dashboard/teacher/library/views/LibraryView.vue"
+                ),
+            },
+          ],
         },
       ],
     },

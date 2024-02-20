@@ -428,6 +428,7 @@ const langs = [
 }
 
 .headerContent {
+  width: 100%;
   display: flex;
   justify-content: space-between;
 }
